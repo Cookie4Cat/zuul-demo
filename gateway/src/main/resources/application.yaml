@@ -1,0 +1,9 @@
+zuul:
+  routes:
+    test:
+      path: /test/**
+      url: www.baidu.com
+management:
+  security:
+    enabled: false
+debug: true
