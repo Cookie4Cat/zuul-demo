@@ -1,9 +1,16 @@
 zuul:
   routes:
-    test:
-      path: /test/**
-      url: www.baidu.com
+    rs-service:
+      path: /api-gateway/rs-service/**
+      serviceId: fake-service
+    sample-service:
+      path: /too-young-too-sample
+      url: localhost:8082/echo/test2
 management:
   security:
     enabled: false
 debug: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
