@@ -5,7 +5,7 @@ management:
     enabled: false
 spring:
   application:
-    name: hello-service
+    name: fake-service
 eureka:
   client:
     service-url:
