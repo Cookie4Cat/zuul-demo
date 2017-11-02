@@ -26,4 +26,20 @@ public class FakeController {
         result.put("Result", JSON.parse(body));
         return result.toJSONString();
     }
+
+    @PostMapping(value = "/ribbon-route-service")
+    public String ribbonRouteService(@RequestBody String content){
+        return "ribbon route service call by " + getNameFromJsonStr(content);
+    }
+
+    @PostMapping(value = "/sample-route-service")
+    public String sampleRouteService(@RequestBody String content){
+        return "sample route service call by " + getNameFromJsonStr(content);
+
+    }
+
+    private String getNameFromJsonStr(String content){
+        JSONObject requestDataObj = JSON.parseObject(content).getJSONObject("requestData");
+        return requestDataObj.getString("name");
+    }
 }
