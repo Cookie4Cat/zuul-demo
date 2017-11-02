@@ -27,12 +27,12 @@ public class FakeController {
         return result.toJSONString();
     }
 
-    @PostMapping(value = "/ribbon-route-service")
+    @PostMapping(value = "/fake-service/ribbon-route-service")
     public String ribbonRouteService(@RequestBody String content){
         return "ribbon route service call by " + getNameFromJsonStr(content);
     }
 
-    @PostMapping(value = "/sample-route-service")
+    @PostMapping(value = "/fake-service/sample-route-service")
     public String sampleRouteService(@RequestBody String content){
         return "sample route service call by " + getNameFromJsonStr(content);
 
