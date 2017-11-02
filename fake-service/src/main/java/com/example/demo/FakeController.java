@@ -27,7 +27,7 @@ public class FakeController {
         return result.toJSONString();
     }
 
-    @PostMapping(value = "/fake-service/ribbon-route-service")
+    @PostMapping(value = "/siebel/fake-service/ribbon-route-service")
     public String ribbonRouteService(@RequestBody String content){
         return "ribbon route service call by " + getNameFromJsonStr(content);
     }
