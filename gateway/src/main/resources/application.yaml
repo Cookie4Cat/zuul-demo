@@ -1,13 +1,7 @@
 zuul:
   routes:
-    rs-service:
-      path: /api-gateway/rs-service/**
-      url: http://buchunzaide.com
-    sample-service:
-      path: /too-young-too-sample
-      url: localhost:8082/echo/test2
-    sieble-service:
-      path: /api-gateway/rs-service/sieble/**
+    fake-service:
+      path: /fake-service/**
       serviceId: fake-service
 management:
   security:
@@ -20,3 +14,15 @@ eureka:
 spring:
   application:
     name: zuul-api-gateway
+zuul:
+  ratelimit:
+    enabled: true
+    behind-proxy: true
+    default-policy: #optional - will apply unless specific policy exists
+      limit: 3 #optional - request number limit per refresh interval window
+      quota: 1000 #optional - request time limit per refresh interval window (in seconds)
+      refresh-interval: 60 #default value (in seconds)
+      type: #optional
+        - user
+        - origin
+        - url
