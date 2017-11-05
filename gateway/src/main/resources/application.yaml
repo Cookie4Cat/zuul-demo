@@ -3,6 +3,17 @@ zuul:
     fake-service:
       path: /fake-service/**
       serviceId: fake-service
+  ratelimit:
+      enabled: true
+      behind-proxy: true
+      default-policy: #optional - will apply unless specific policy exists
+        limit: 3 #optional - request number limit per refresh interval window
+        quota: 1000 #optional - request time limit per refresh interval window (in seconds)
+        refresh-interval: 60 #default value (in seconds)
+        type: #optional
+          - user
+          - origin
+          - url
 management:
   security:
     enabled: false
@@ -14,15 +25,4 @@ eureka:
 spring:
   application:
     name: zuul-api-gateway
-zuul:
-  ratelimit:
-    enabled: true
-    behind-proxy: true
-    default-policy: #optional - will apply unless specific policy exists
-      limit: 3 #optional - request number limit per refresh interval window
-      quota: 1000 #optional - request time limit per refresh interval window (in seconds)
-      refresh-interval: 60 #default value (in seconds)
-      type: #optional
-        - user
-        - origin
-        - url
+
