@@ -20,3 +20,8 @@ eureka:
 spring:
   application:
     name: zuul-api-gateway
+  rabbitmq:
+    host: 10.0.52.181
+    port: 8021
+    username: api-gateway-dev
+    password: 123456
