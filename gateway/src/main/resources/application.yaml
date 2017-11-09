@@ -2,13 +2,13 @@ zuul:
   routes:
     rs-service:
       path: /api-gateway/rs-service/**
-      url: http://buchunzaide.com
+#      url: http://buchunzaide.com
     sample-service:
       path: /too-young-too-sample
       url: localhost:8082/echo/test2
-    sieble-service:
-      path: /api-gateway/rs-service/sieble/**
-      serviceId: fake-service
+#    sieble-service:
+#      path: /api-gateway/rs-service/sieble/**
+#      serviceId: fake-service
 management:
   security:
     enabled: false

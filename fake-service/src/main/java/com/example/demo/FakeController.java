@@ -2,6 +2,9 @@ package com.example.demo;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,6 +39,11 @@ public class FakeController {
     public String sampleRouteService(@RequestBody String content){
         return "sample route service call by " + getNameFromJsonStr(content);
 
+    }
+
+    @PostMapping("/fake-service/404service")
+    public ResponseEntity<String> notFoundService(){
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     private String getNameFromJsonStr(String content){
