@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.Charset;
@@ -52,7 +51,6 @@ public class ChangeRequestUrlFilter extends ZuulFilter {
             String url = interfaceOptional.map(ApiInterface::getTargetUrl).orElse("");
             Boolean isSiebelApi = url.contains("siebel");
             if(isSiebelApi){
-                //request.setAttribute("javax.servlet.include.request_uri","/api-gate-way/rs-service/");
                 ctx.set("routeHost",null);
                 ctx.set("serviceId","fake-service");
                 ctx.set("requestURI", new URL(url).getPath());
