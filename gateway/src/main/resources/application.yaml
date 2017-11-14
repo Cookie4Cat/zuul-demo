@@ -22,6 +22,8 @@ spring:
     name: zuul-api-gateway
   rabbitmq:
     host: 10.0.52.181
-    port: 8021
+    port: 8020
     username: api-gateway-dev
     password: 123456
+server:
+  port: ${random.int[8081,8091]}

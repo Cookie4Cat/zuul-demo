@@ -4,6 +4,7 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.http.HttpServletRequestWrapper;
 import com.netflix.zuul.http.ServletInputStreamWrapper;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StreamUtils;
@@ -18,7 +19,13 @@ import static com.netflix.zuul.context.RequestContext.getCurrentContext;
 import static org.springframework.util.ReflectionUtils.rethrowRuntimeException;
 
 @Component
+@RefreshScope
 public class ChangeBodyFilter extends ZuulFilter {
+
+    public void refreshAll(){
+        System.out.println("laowang");
+    }
+
     @Override
     public String filterType() {
         return "pre";
